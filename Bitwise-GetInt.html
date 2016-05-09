@@ -1,0 +1,38 @@
+<script>
+  console.time('| 0');
+  for (var i = 0; i < 10000000; i++) {
+    i / 3 | 0
+  }
+  console.timeEnd('| 0');
+
+  console.time('Math.floor');
+  for (var i = 0; i < 10000000; i++) {
+    Math.floor(i / 3)
+  }
+  console.timeEnd('Math.floor');
+  
+  console.time('parseInt(x)');
+  for (var i = 0; i < 10000000; i++) {
+    parseInt(i / 3)
+  }
+  console.timeEnd('parseInt(x)');
+
+  console.time('parseInt(x, 10)');
+  for (var i = 0; i < 10000000; i++) {
+    parseInt(i / 3, 10)
+  }
+  console.timeEnd('parseInt(x, 10)');
+  
+  console.time('(| 0) + 1');
+  for (var i = 0; i < 10000000; i++) {
+    (i / 3 | 0) + 1
+  }
+  console.timeEnd('(| 0) + 1');
+
+  console.time('Math.ceil');
+  for (var i = 0; i < 10000000; i++) {
+    Math.ceil(i / 3)
+  }
+  console.timeEnd('Math.ceil');
+
+</script>

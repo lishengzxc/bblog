@@ -1,0 +1,26 @@
+<script>
+  function leftpad (str, len, ch) {
+  //convert the `str` to String
+  str = str +''; 
+
+  //needn't to pad
+  len = len - str.length;
+  if (len <= 0) return str;
+
+  //convert the `ch` to String
+  if (!ch && ch !== 0) ch = ' ';
+  ch = ch + ''; 
+
+  var pad = '';
+  while (true) {
+    debugger
+    if (len & 1) pad += ch;
+    len >>= 1;
+    if (len) ch += ch;
+    else break;
+  }
+  return pad + str;
+}
+
+leftpad('foo', 10)
+</script>

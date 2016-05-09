@@ -1,0 +1,25 @@
+<script>
+  console.time('*2');
+  for (var i = 0; i < 10000000; i++) {
+    1.1 * 2
+  }
+  console.timeEnd('*2');
+
+  console.time('<<1');
+  for (var i = 0; i < 10000000; i++) {
+    1.1 << 1
+  }
+  console.timeEnd('<<1');
+
+  console.time('/4');
+  for (var i = 0; i < 10000000; i++) {
+    1.1 / 4
+  }
+  console.timeEnd('/4');
+
+  console.time('>>2');
+  for (var i = 0; i < 10000000; i++) {
+    1.1 >> 2
+  }
+  console.timeEnd('>>2');
+</script>
