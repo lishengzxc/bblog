@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>debounce</title>
+</head>
+<body>
+  <script src="http://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+  <script>
+    function debounce(fn, delay, immediate) {
+      var timer, result
+
+      var later = function(context, args) {
+        timer = null
+        if (args) result = fn.apply(context, args)
+      }
+
+      return function() {
+        var args = arguments
+        if (timer) clearTimeout(timer)
+        if (immediate) {
+          var callNow = !timer
+          timer = setTimeout(later, delay)
+          if (callNow) result = fn.apply(this, args)
+        } else {
+          timer = setTimeout(() => fn.apply(this, args), delay)
+        }
+
+        return result
+      }
+    }
+    
+    document.addEventListener('mousemove', debounce(function() {console.log(this)}, 1000, true))    
+  </script>
+</body>
+</html>
